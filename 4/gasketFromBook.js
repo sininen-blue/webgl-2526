@@ -1,6 +1,9 @@
 "use strict";
 
 var gl;
+var positions = [];
+
+var numPositions = 5000;
 init();
 
 function init() {
@@ -12,7 +15,36 @@ function init() {
 	//  Initialize our data for the Sierpinski Gasket
 	//
 
-	// PLACE YOUR CODE HERE
+	// First, initialize the corners of our gasket with three positions.
+
+	var vertices = [
+		vec2(-1, -1),
+		vec2(0, 1),
+		vec2(1, -1)
+	];
+
+	// Specify a starting positions p for our iterations
+	// p must lie inside any set of three vertices
+
+	var u = add(vertices[0], vertices[1]);
+	var v = add(vertices[0], vertices[2]);
+	var p = mult(0.25, add(u, v));
+
+	// And, add our initial positions into our array of points
+
+	positions.push(p);
+
+	// Compute new positions
+	// Each new point is located midway between
+	// last point and a randomly chosen vertex
+
+	for (var i = 0; positions.length < numPositions; ++i) {
+		var j = Math.floor(3 * Math.random());
+
+		p = add(positions[i], vertices[j]);
+		p = mult(0.5, p);
+		positions.push(p);
+	}
 
 	//
 	//  Configure WebGL
