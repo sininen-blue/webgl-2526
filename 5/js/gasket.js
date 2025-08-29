@@ -4,7 +4,6 @@ var gl;
 var positions = [];
 
 var numPositions = 5000;
-
 init();
 
 function init() {
@@ -12,33 +11,32 @@ function init() {
 	gl = canvas.getContext('webgl2');
 	if (!gl) alert("WebGL 2.0 isn't available");
 
-
 	//
 	//  Initialize our data for the Sierpinski Gasket
 	//
 
-	// First, initialize the corners of our gasket with three points.
+	// First, initialize the corners of our gasket with three positions.
+
 	var vertices = [
 		vec2(-1, -1),
 		vec2(0, 1),
 		vec2(1, -1)
 	];
 
-	// Next, generate the rest of the points, by first finding a random position
-	//  within our gasket boundary.  We use Barycentric coordinates
-	//  (simply the weighted average of the corners) to find the position
+	// Specify a starting positions p for our iterations
+	// p must lie inside any set of three vertices
 
-	var coeffs = vec3(Math.random(), Math.random(), Math.random());
+	var u = add(vertices[0], vertices[1]);
+	var v = add(vertices[0], vertices[2]);
+	var p = mult(0.25, add(u, v));
 
+	// And, add our initial positions into our array of points
 
-	var a = mult(coeffs[0], vertices[0]);
-	var b = mult(coeffs[1], vertices[1]);
-	var c = mult(coeffs[2], vertices[2]);
-
-	var p = add(a, add(b, c));
-
-	// Add our randomly chosen position into our array of positions
 	positions.push(p);
+
+	// Compute new positions
+	// Each new point is located midway between
+	// last point and a randomly chosen vertex
 
 	for (var i = 0; positions.length < numPositions; ++i) {
 		var j = Math.floor(3 * Math.random());
@@ -55,15 +53,18 @@ function init() {
 	gl.clearColor(1.0, 1.0, 1.0, 1.0);
 
 	//  Load shaders and initialize attribute buffers
-	var program = initShaders(gl, "shaders/vshader.glsl", "shaders/fshader.glsl");
+
+	var program = initShaders(gl, "vertex-shader", "fragment-shader");
 	gl.useProgram(program);
 
 	// Load the data into the GPU
+
 	var bufferId = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
 	gl.bufferData(gl.ARRAY_BUFFER, flatten(positions), gl.STATIC_DRAW);
 
 	// Associate out shader variables with our data buffer
+
 	var positionLoc = gl.getAttribLocation(program, "aPosition");
 	gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
 	gl.enableVertexAttribArray(positionLoc);
