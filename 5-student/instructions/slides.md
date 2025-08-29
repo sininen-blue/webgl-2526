@@ -11,9 +11,9 @@ layout: center
 ---
 
 0. Prep
-- download the starter files from 
-[ishortn.ink/gasketSource](ishortn.ink/gasketSource)
-<img src="./images/gitQr" alt="QR code to the GitHub repo" width="150"/>
+- download the starter files from  [ishortn.ink/gasketSource](https://ishortn.ink/gasketSource)
+<img src="./images/gitQr.png" alt="QR code to the GitHub repo" width="150"/>
+
 - ignore the `NOTES:` comments in the code for now, these are questions which you will answer later
 
 ---
@@ -162,8 +162,8 @@ layout: center
 
 8. rename your folder to `gasket_yourname` and submit it to
 
-[ishortn.ink/gasketSubmit](ishortn.ink/gasketSubmit)
-<img src="./images/submitQr" alt="QR code to the submission form" width="150"/>
+[ishortn.ink/gasketSubmit](https://ishortn.ink/gasketSubmit)
+<img src="./images/submitQr.png" alt="QR code to the submission form" width="150"/>
 
 ---
 Layout: center
