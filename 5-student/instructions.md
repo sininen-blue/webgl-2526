@@ -83,3 +83,8 @@ layout: center
 ---
 
 7. Complete the `NOTES:` comments in your code to explain what each part does
+
+i.e. 
+- `// NOTES: what does this line do?` becomes
+- `// NOTES: what does this line do? This line sets up the WebGL context`
+

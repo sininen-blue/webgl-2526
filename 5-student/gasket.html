@@ -9,29 +9,16 @@
 		<canvas id="gl-canvas" width="512" height="512"></canvas>
 		
 		<script id="fragment-shader" type="x-shader/x-fragment">
-#version 300 es
-
-precision highp float;
-
-out vec4 fColor;
-
-void main()
-{
-    fColor = vec4( 1.0, 0.0, 0.0, 1.0 );
-}
+		<!-- fragment shader here -->
 		</script>
+		<!-- NOTE: What does fragment shader do in our program? -->
 
 		<script id="vertex-shader" type="x-shader/x-vertex">
-#version 300 es
-
-in vec4 aPosition;
-
-void main()
-{
-    gl_PointSize = 1.0;
-    gl_Position = aPosition;
-}
+		<!-- vertext shader here -->
 		</script>
+		<!-- NOTE: What does the vertex shader do in our program? -->
+		<!-- NOTE: What is aPosition? -->
+		<!-- NOTE: What is gl_Position? -->
 
 		<script src="js/initShaders.js"></script>
 		<script src="js/MV.js"></script>
