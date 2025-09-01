@@ -160,7 +160,12 @@ i.e.
 layout: center
 ---
 
-8. rename your folder to `gasket_yourname` and submit it to
+8. rename your folder to `gasket_LASTNAME_FIRSTNAME` and submit it to
+
+Last checks before submitting:
+- make sure your name is CAPITALIZED
+- Submit the entire folder, do not zip 
+- make sure that your code has at least 2 of the experiments from step 6
 
 [ishortn.ink/gasketSubmit](https://ishortn.ink/gasketSubmit)
 <img src="./images/submitQr.png" alt="QR code to the submission form" width="150"/>
@@ -170,7 +175,78 @@ Layout: center
 ---
 
 9. Homework
-- Save your file somewhere so you can access it at home 
+- Save your file somewhere so you can access it at home, like in your own google drive or git
 - generate a different image using points by modifying your gasket.js file
 - make a square, a house, a tree, a face, etc
-- either hand place all the points, or generate them with math and for loops
+- use an algorithm to generate the points, not just hand placing them all points
+- use comments to explain how your algorithm works
+
+---
+
+10. Assignment Grading
+<table border="0" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Criteria</th>
+      <th>5</th>
+      <th>4</th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>technical correctness</td>
+      <td>code runs without errors</td>
+      <td>code runs with minor errors but still renders</td>
+      <td>code runs but is incomplete</td>
+      <td>code does not run but shows effort</td>
+      <td>code does not run and shows little effort</td>
+    </tr>
+    <tr>
+      <td>algorithmic approach</td>
+      <td>uses a clear algorithm (loops, math, transformations, randomness) to generate points</td>
+      <td>uses an algorithm but it's partly hardcoded or inefficient</td>
+      <td>uses some algorithm and hand place points</td>
+      <td>mostly hand placed points</td>
+      <td>image is made entirely of hand placed points</td>
+    </tr>
+    <tr>
+      <td>image clarity</td>
+      <td>demonstrates clear understanding of vertices, uses them to form a recognizable image</td>
+      <td>demonstrates understanding of vertices, but image is somewhat unclear</td>
+      <td>demonstrates some understanding of vertices, but image is unclear</td>
+      <td>demonstrates little understanding of vertices, image is not recognizable</td>
+      <td>no understanding of vertices, no recognizable image</td>
+    </tr>
+    <tr>
+      <td>creativity</td>
+      <td>image is unique and shows creativity in design</td>
+      <td>image is somewhat unique and shows some creativity</td>
+      <td>image is common but shows some effort</td>
+      <td>image is very common and shows little effort</td>
+      <td>no creativity, copied from example</td>
+    </tr>
+        <tr>
+            <td>documentation</td>
+            <td>code is properly commented and is understandable</td>
+            <td>code is mostly commented and understandable</td>
+            <td>code has some comments but is hard to understand</td>
+            <td>code has few comments and is very hard to understand</td>
+            <td>code has no comments and is not understandable</td>
+            </tr>
+  </tbody>
+</table>
+
+<style>
+    table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    th, td {
+        padding: 4px;
+    }
+</style>
