@@ -18,8 +18,9 @@ window.onload = function() {
 	// generate the sierpinski gasket
 
 	LoadDataToGPU(positions);
-	// NOTE: in a high level, what are we doing here step by step?
-	// the code for this is located at the js/MV.js file, the loadDataTOGPU function
+	// NOTE: what is this function doing?
+	// the code for this is located at the js/webgl.js file, in the loadDataTOGPU() function
+	// describe the code in a high level, step by step
 
 	render();
 	// NOTE: What type of rendering are we doing here? Justify your answer (immediate or retained mode or modern)
