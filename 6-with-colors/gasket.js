@@ -2,22 +2,39 @@
 
 var positions;
 var colors;
+var vertices;
 var numPositions = 5000;
 
 window.onload = function() {
 	initGL();
+	updateVertices();   // generate initial vertices + gasket
+	render();
 
-	// step 3.1
-	// set up the triangle
-	var vertices = [
-		vec3(-0.5, -0.5, -0.5),
-		vec3(0.5, -0.5, -0.5),
-		vec3(0.0, 0.5, 0.0),
-		vec3(0.0, -0.5, 0.5),
+	// 🔄 Run every second
+	setInterval(function() {
+		// change the vertices slightly
+		for (let i = 0; i < vertices.length; i++) {
+			vertices[i][0] += (Math.random() - 0.5) * 0.05; // jitter x
+			vertices[i][1] += (Math.random() - 0.5) * 0.05; // jitter y
+			vertices[i][2] += (Math.random() - 0.5) * 0.05; // jitter z
+		}
+		updateGasket();
+		render();
+	}, 10); // 1000 ms = 1 second
+}
+
+
+function updateVertices() {
+	vertices = [
+		vec3(-0.5, -0.5, -0.5), // left down back
+		vec3(0.5, -0.5, -0.5), // right down back
+		vec3(0.0, 0.5, 0.0), // center up center
+		vec3(0.0, -0.8, 0.5), // center down front
 	];
+	updateGasket();
+}
 
-	// step 3.2
-	// Pick an initial point inside the triangle
+function updateGasket() {
 	positions = [vec3(0.0, 0.0, 0.0)]; // initial point inside the tetrahedron
 	colors = [vec4(0.5, 0.5, 0.5, 1.0)]; // initial color
 
@@ -37,10 +54,4 @@ window.onload = function() {
 	}
 
 	LoadDataToGPU(positions, colors);
-	// NOTE: what is this function doing?
-	// the code for this is located at the js/webgl.js file, in the loadDataTOGPU() function
-	// describe the code in a high level, step by step
-
-	render();
-	// NOTE: What type of rendering are we doing here? Justify your answer (immediate or retained mode or modern)
 }
