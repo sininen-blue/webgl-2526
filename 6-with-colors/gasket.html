@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<title>2D Sierpinski Gasket</title>
+	</head>
+
+	<body>
+		<canvas id="gl-canvas" width="500" height="500"></canvas>
+
+		<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision highp float;
+
+in vec4 vColor;
+out vec4 fColor;
+
+void main()
+{
+    fColor = vColor;
+}
+		</script>
+		<!-- NOTE: What does fragment shader do in our program? -->
+
+		<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in vec3 aPosition;
+in vec4 aColor;
+out vec4 vColor;
+
+void main()
+{
+    gl_PointSize = 3.0;
+	vColor = aColor;
+    gl_Position = vec4(aPosition, 1.0);
+}
+		</script>
+		<!-- NOTE: What does the vertex shader do in our program? -->
+		<!-- NOTE: What is aPosition? -->
+		<!-- NOTE: What is gl_Position? -->
+
+		<script src="js/initShaders.js"></script>
+		<script src="js/MV.js"></script>
+		<script src="js/webgl.js"></script>
+
+		<script src="gasket.js"></script>
+	</body>
+</html>
