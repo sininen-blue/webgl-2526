@@ -40,14 +40,16 @@ function init() {
 
 	thetaLoc = gl.getUniformLocation(program, "uTheta");
 
-	setInterval(render, 16);
+	render();
 };
 
 
 function render() {
+
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	theta += 0.1;
 	gl.uniform1f(thetaLoc, theta);
 	gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
+	render()
 }
